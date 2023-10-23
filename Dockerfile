@@ -4,7 +4,6 @@ FROM dart:latest
 COPY ./config /app/config
 COPY ./lib /app/lib
 COPY ./bin /app/bin
-COPY ./views /app/views
 COPY ./web /app/web
 COPY ./*.yaml /app/
 
