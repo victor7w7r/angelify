@@ -15,8 +15,8 @@ RUN dart pub upgrade
 
 # Set environment, start server in JIT mode
 ENV ANGEL_ENV=production
-EXPOSE 3000
-CMD dart ./bin/prod.dart -p 3000 -a 0.0.0.0
+EXPOSE 8080
+CMD dart ./bin/prod.dart -p 8080 -a 0.0.0.0
 
 # Use -j flag to set higher number of isolates
 #CMD dart ./bin/prod.dart -p 3000 -a 0.0.0.0 -j 50
