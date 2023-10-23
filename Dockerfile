@@ -1,32 +1,23 @@
-# An example of using a custom Dockerfile with Dart Frog
-# Official Dart image: https://hub.docker.com/_/dart
-# Specify the Dart SDK base image version using dart:<version> (ex: dart:2.17)
-FROM dart:stable AS build
+FROM dart:latest
+
+# Copy all the source code
+COPY ./config /app/config
+COPY ./lib /app/lib
+COPY ./bin /app/bin
+COPY ./views /app/views
+COPY ./web /app/web
+COPY ./*.yaml /app/
 
 WORKDIR /app
+RUN dart pub upgrade
 
-# Resolve app dependencies.
-COPY pubspec.* ./
-RUN dart pub get
+# Optionally build generated sources.
+# RUN pub run build_runner build
 
-# Copy app source code and AOT compile it.
-COPY . .
+# Set environment, start server in JIT mode
+ENV ANGEL_ENV=production
+EXPOSE 3000
+CMD dart ./bin/prod.dart -p 3000 -a 0.0.0.0
 
-# Generate a production build.
-RUN dart pub global activate dart_frog_cli
-RUN dart pub global run dart_frog_cli:dart_frog build
-
-# Ensure packages are still up-to-date if anything has changed.
-RUN dart pub get --offline
-RUN dart compile exe build/bin/server.dart -o build/bin/server
-
-# Build minimal serving image from AOT-compiled `/server` and required system
-# libraries and configuration files stored in `/runtime/` from the build stage.
-FROM scratch
-COPY --from=build /runtime/ /
-COPY --from=build /app/build/bin/server /app/bin/
-# Uncomment the following line if you are serving static files.
-# COPY --from=build /app/build/public /public/
-
-# Start the server.
-CMD ["/app/bin/server"]
+# Use -j flag to set higher number of isolates
+#CMD dart ./bin/prod.dart -p 3000 -a 0.0.0.0 -j 50

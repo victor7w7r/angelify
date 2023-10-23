@@ -1,12 +1,34 @@
-# WebSocket Counter
 
-[![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
-[![License: MIT][license_badge]][license_link]
-[![Powered by Dart Frog](https://img.shields.io/endpoint?url=https://tinyurl.com/dartfrog-badge)](https://dartfrog.vgv.dev)
+# Basic Starter Application for Angel3 framework
 
-An example counter app built with `dart_frog` using WebSockets.
+This is a basic starter application for [Angel3 framework](https://angel3-framework.web.app) which is a full-stack Web framework in Dart.
 
-[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[license_link]: https://opensource.org/licenses/MIT
-[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
-[very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
+## Installation & Setup
+
+1. Download and install [Dart](https://dart.dev/get-dart).
+
+### Development
+
+1. Run the following command to start Angel3 server in dev mode to *hot-reloaded* on file changes:
+
+    ```bash
+    dart --observe bin/dev.dart
+    ```
+
+2. Modify the code and watch the changes applied to the application
+
+### Production
+
+1. Run the following command:
+
+    ```bash
+    dart bin/prod.dart
+    ```
+
+2. Run as docker. Edit and run the provided `Dockerfile` to build the image.
+
+## Resources
+
+Visit the [Developer Guide](https://angel3-docs.dukefirehawk.com/guides) for dozens of guides and resources, including video tutorials, to get up and running as quickly as possible with Angel3.
+
+Examples and complete projects can be found [here](https://angel3-framework.web.app/#/examples).

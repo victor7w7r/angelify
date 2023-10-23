@@ -1,18 +1,24 @@
-name: web_socket_counter
-description: An example counter app built with Dart Frog using WebSockets.
-version: 1.0.0+1
+name: testeable
+version: 1.0.0
+description: A basic starter application template for Angel3 framework
 publish_to: none
-
 environment:
-  sdk: ">=3.1.0 <4.0.0"
-
+  sdk: '>=2.17.0 <3.0.0'
 dependencies:
-  broadcast_bloc: ^0.1.0-dev.1
-  dart_frog: ^1.0.0
-  dart_frog_web_socket: ^1.0.0
-
+  angel3_auth: ^8.0.0
+  angel3_configuration: ^8.0.0
+  angel3_framework: ^8.1.1
+  angel3_production: ^8.0.0
+  angel3_static: ^8.0.0
+  angel3_validate: ^8.0.0
+  angel3_websocket: ^8.0.0
+  belatuk_pretty_logging: ^6.0.0
 dev_dependencies:
-  bloc_test: ^9.1.0
-  http: ^1.0.0
-  very_good_analysis: ^5.1.0
-  web_socket_client: ^0.1.0-dev.1
+  angel3_hot: ^8.0.0
+  io: ^1.0.4
+  test: ^1.24.8
+  lints: ^3.0.0
+
+
+
+
