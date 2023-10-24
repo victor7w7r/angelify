@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Development Server",
+      "type": "dart",
+      "console": "terminal",
+      "request": "launch",
+      "program": "${workspaceRoot}/bin/dev.dart",
+      "vmAdditionalArgs": ["--observe"]
+    },
+    {
+      "name": "Production Server",
+      "type": "dart",
+      "request": "launch",
+      "console": "terminal",
+      "program": "${workspaceRoot}/bin/prod.dart",
+      "env": {
+        "ANGEL_ENV": "production"
+      }
+    }
+  ]
+}
