@@ -1,8 +1,7 @@
-import 'package:angel3_cors/angel3_cors.dart' show cors;
-import 'package:angel3_framework/angel3_framework.dart';
+import 'package:angel3_framework/angel3_framework.dart' show AngelConfigurer;
 import 'package:angel3_configuration/angel3_configuration.dart'
     show configuration;
-import 'package:angel3_static/angel3_static.dart';
+import 'package:angel3_static/angel3_static.dart' show VirtualDirectory;
 
 import 'package:file/file.dart';
 
@@ -20,9 +19,4 @@ AngelConfigurer configureServer(final FileSystem fileSystem) =>
         );
         app.fallback(vDir.handleRequest);
       }
-
-      app
-        ..fallback(cors())
-        ..fallback(
-            (final req, final res) => throw AngelHttpException.notFound());
     };
