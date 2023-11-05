@@ -13,14 +13,17 @@ import 'package:angelify/angelify.dart';
 
 void main() async {
   hierarchicalLoggingEnabled = true;
-  final hot = HotReloader(() async {
-    final logger = Logger.detached('Angel3')
-      ..level = Level.ALL
-      ..onRecord.listen(prettyLog);
-    final app = Angel(logger: logger, reflector: MirrorsReflector());
-    await app.configure(configureServer);
-    return app;
-  }, [Directory('config'), Directory('lib')]);
+  final hot = HotReloader(
+    () async {
+      final logger = Logger.detached('Angel3')
+        ..level = Level.ALL
+        ..onRecord.listen(prettyLog);
+      final app = Angel(logger: logger, reflector: const MirrorsReflector());
+      await app.configure(configureServer);
+      return app;
+    },
+    [Directory('config'), Directory('lib')],
+  );
 
   final server = await hot.startServer('127.0.0.1', 3000);
   print('Server listening at http://${server.address.address}:${server.port}');

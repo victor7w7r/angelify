@@ -7,15 +7,13 @@ import 'package:angelify/common/common.dart' as common;
 import 'package:angelify/dummy/dummy.dart' as dummy;
 
 Future<dynamic> configureServer(final Angel app) async {
-  final fs = const LocalFileSystem();
-
   app.fallback(cors());
 
   //Modules
   await app.configure(dummy.configureServer);
 
   //Later common resources
-  await app.configure(common.configureServer(fs));
+  await app.configure(common.configureServer(const LocalFileSystem()));
 
   app
     ..fallback((final req, final res) => throw AngelHttpException.notFound())

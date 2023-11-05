@@ -10,6 +10,8 @@ class DummyController extends Controller {
 
   @Expose('/')
   Future<String> routeController(
-          final RequestContext req, final ResponseContext res) async =>
+    final RequestContext req,
+    final ResponseContext res,
+  ) async =>
       _dummyService.testService();
 }

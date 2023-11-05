@@ -1,5 +1,5 @@
 name: angelify
-description: A Angel3 Template
+description: An Angel3 Template
 
 publish_to: none
 
@@ -9,7 +9,6 @@ environment:
   sdk: '>=3.1.5 <4.0.0'
 
 dependencies:
-  angel3_auth: ^8.0.0
   angel3_configuration: ^8.0.0
   angel3_container: ^8.0.0
   angel3_cors: ^8.0.0
