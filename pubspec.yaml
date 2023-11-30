@@ -6,19 +6,19 @@ publish_to: none
 version: 1.0.0
 
 environment:
-  sdk: '>=3.1.5 <4.0.0'
+  sdk: '>=3.2.1 <4.0.0'
 
 dependencies:
   angel3_configuration: ^8.0.0
   angel3_container: ^8.0.0
   angel3_cors: ^8.0.0
-  angel3_framework: ^8.1.1
-  angel3_production: ^8.0.0
+  angel3_framework: ^8.2.0
+  angel3_production: ^8.1.0
   angel3_static: ^8.0.0
   belatuk_pretty_logging: ^6.0.0
   file: ^7.0.0
 
 dev_dependencies:
-  angel3_hot: ^8.0.0
+  angel3_hot: ^8.1.0
   io: ^1.0.4
   lints: ^3.0.0
